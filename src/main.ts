@@ -4,7 +4,6 @@ import { ValidationPipe } from '@nestjs/common/pipes';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix('api');
   app.enableCors();
   //verify if entered data matches with their types
   app.useGlobalPipes(
