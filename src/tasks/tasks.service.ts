@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Task } from 'src/schemas/task.schema';
+import { Task } from 'src/schemas/tasks.schema';
 import { Model } from 'mongoose';
-import { CreateTaskDto } from 'src/dto/create-task.dto';
-import { UpdateTaskDto } from 'src/dto/update-task.dto';
+import { CreateTaskDto } from 'src/dto/tasks/create-task.dto';
+import { UpdateTaskDto } from 'src/dto/tasks/update-task.dto';
 
 //.service is for database interaction
 
