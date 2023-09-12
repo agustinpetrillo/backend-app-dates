@@ -24,7 +24,7 @@ export class AuthService {
       password: hashedPassword,
     });
 
-    const token = this.jwtService.sign({ id: user._id });
+    const token = this.jwtService.sign({ id: user._id, name: user.name });
 
     return { token };
   }
