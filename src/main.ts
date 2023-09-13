@@ -12,6 +12,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  await app.listen(4000);
+  await app.listen(8080, '0.0.0.0');
+  // https://backend-app-dates-0ner-dev.fl0.io/
 }
 bootstrap();
