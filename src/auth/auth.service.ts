@@ -15,12 +15,12 @@ export class AuthService {
   ) {}
 
   async signUp(signUpDto: SignUpDto): Promise<{ token: string }> {
-    const { name, lastName, email, password } = signUpDto;
+    const { name, last_name, email, password } = signUpDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await this.userModel.create({
       name,
-      lastName,
+      last_name,
       email,
       password: hashedPassword,
     });
