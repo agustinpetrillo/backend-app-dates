@@ -3,6 +3,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { AccountsModule } from './accounts/accounts.module';
 
 //ConfigModule is for fixing .env
 
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
     ),
     TasksModule,
     AuthModule,
+    AccountsModule,
   ],
   controllers: [],
   providers: [],
