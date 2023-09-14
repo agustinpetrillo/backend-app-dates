@@ -30,7 +30,7 @@ export class AccountsController {
   }
 
   @Delete('/profile/settings/delete')
-  delete(@Body() userId: DeleteAccountIdDto) {
+  deleteAccount(@Body() userId: DeleteAccountIdDto) {
     return this.accountService.deleteAccount(userId);
   }
 
