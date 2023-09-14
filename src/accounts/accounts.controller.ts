@@ -1,4 +1,13 @@
-import { Controller, Post, Body, Get, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  Param,
+  Query,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { AccountsService } from './accounts.service';
 import { DeleteAccountIdDto } from 'src/dto/accounts/delete.dto';
 import { PasswordDto } from 'src/dto/accounts/password.dto';
@@ -20,17 +29,17 @@ export class AccountsController {
     return this.accountService.getAccount(userId);
   }
 
-  @Post('/profile/settings')
+  @Delete('/profile/settings/delete')
   delete(@Body() userId: DeleteAccountIdDto) {
     return this.accountService.deleteAccount(userId);
   }
 
-  @Post('/profile/settings')
+  @Put('/profile/settings/modifyPassword')
   modifyPassword(@Body() newPassword: PasswordDto, userId: string) {
     return this.accountService.modifyPassword(newPassword, userId);
   }
 
-  @Post('/profile/settings')
+  @Put('/profile/settings/modifyEmail')
   modifyEmail(@Body() newEmail: EmailAccountDto, userId: string) {
     return this.accountService.modifyEmail(newEmail, userId);
   }
