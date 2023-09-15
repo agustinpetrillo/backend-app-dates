@@ -34,11 +34,10 @@ export class AuthService {
     const { email, password } = loginDto;
 
     const user = await this.userModel.findOne({ email });
-    if (!user) throw new UnauthorizedException('The user does not exists');
+    if (!user) throw new UnauthorizedException('The user does not exists!');
 
     const isPasswordMatches = await bcrypt.compare(password, user.password);
-    if (!isPasswordMatches)
-      throw new UnauthorizedException('The password is wrong');
+    if (!isPasswordMatches) throw new UnauthorizedException('Wrong password!');
 
     const token = this.jwtService.sign({ id: user._id });
 
