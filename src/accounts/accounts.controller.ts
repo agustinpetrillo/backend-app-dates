@@ -7,21 +7,20 @@ import {
   UseGuards,
   Req,
 } from '@nestjs/common';
-import { Request } from 'express';
-// import { AuthGuard } from '@nestjs/passport';
 import { AccountsService } from './accounts.service';
 import { DeleteAccountIdDto } from 'src/dto/accounts/delete.dto';
 import { PasswordDto } from 'src/dto/accounts/password.dto';
 import { EmailAccountDto } from 'src/dto/accounts/email.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('user')
 export class AccountsController {
   constructor(private accountService: AccountsService) {}
 
   @Get('/profile/settings/me')
-  // @UseGuards(AuthGuard())
-  getAccount(@Req() req: Request) {
-    return req.user;
+  @UseGuards(JwtAuthGuard)
+  getAccount(@Req() req) {
+    return this.accountService.findOne(req.user.id);
   }
 
   @Delete('/profile/settings/delete')

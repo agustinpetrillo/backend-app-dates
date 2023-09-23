@@ -47,4 +47,8 @@ export class AccountsService {
     }
     return updatedAccount;
   }
+
+  async findOne(id: string) {
+    return await this.userModel.findById(id);
+  }
 }
