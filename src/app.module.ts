@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { AccountsModule } from './accounts/accounts.module';
+import { UserSettingsModule } from './user-settings/user-settings.module';
 
 //ConfigModule is for fixing .env
 
@@ -18,6 +19,7 @@ import { AccountsModule } from './accounts/accounts.module';
     TasksModule,
     AuthModule,
     AccountsModule,
+    UserSettingsModule,
   ],
   controllers: [],
   providers: [],
